@@ -17,8 +17,72 @@
 
 body {
     background-color: #f9f9f9;
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23ff3366'><circle cx='12' cy='12' r='6'/></svg>") 12 12, auto;
+    cursor: none;
 }
+
+/* Primary cursor element */
+.custom-cursor {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ff3366; /* Solid fill with primary color */
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    z-index: 9999;
+}
+
+/* Secondary cursor element (outer ring) */
+.cursor-follower {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #ffcc00; /* Increased thickness of yellow stroke */
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, border-color 0.3s, transform 0.1s;
+    z-index: 9998;
+}
+
+/* Hover effect for clickable elements */
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor,
+.nav-link:hover ~ .custom-cursor,
+.product-card:hover ~ .custom-cursor,
+.category-card:hover ~ .custom-cursor,
+.pagination-btn:hover ~ .custom-cursor {
+    width: 30px;
+    height: 30px;
+    background-color: #ff3366; /* Keep solid fill on hover */
+}
+
+a:hover ~ .cursor-follower,
+button:hover ~ .cursor-follower,
+.nav-link:hover ~ .cursor-follower,
+.product-card:hover ~ .cursor-follower,
+.category-card:hover ~ .cursor-follower,
+.pagination-btn:hover ~ .cursor-follower {
+    width: 60px;
+    height: 60px;
+    border-color: #ffcc00;
+    border-width: 2px; /* Maintain the thicker border on hover */
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+/* Click animation */
+.custom-cursor.clicking {
+    transform: translate(-50%, -50%) scale(0.8);
+    background-color: #ff3366;
+}
+
+.cursor-follower.clicking {
+    transform: translate(-50%, -50%) scale(0.8);
+    border-color: #ffcc00;
+    border-width: 3px; /* Even thicker on click for visual feedback */
+}
+
 
 .container {
     width: 100%;
@@ -101,6 +165,7 @@ body {
 .hamburger {
     display: none;
     cursor: pointer;
+    margin-right: 12px;
 }
 
 .bar {
@@ -813,6 +878,7 @@ body {
 
 @media (max-width: 576px) {
     .logo img {
+        margin-left: 12px;
         height: 40px;
     }
 
@@ -831,7 +897,17 @@ body {
     .section-title {
         font-size: 1.8rem;
     }
+    .contact-text {
+        word-break: break-word; /* This will force long text to break */
+        overflow-wrap: break-word; /* Additional support for text wrapping */
+        font-size: 0.9rem; /* Optional: Slightly reduce font size on mobile */
+        width: 100%; /* Ensure the text container takes full width */
+    }
     
+    .contact-item {
+        /* Your existing styles */
+        padding: 15px 10px; /* Reduce horizontal padding slightly */
+    }
     /* Keep 2 categories per row even on very small screens */
     .categories-grid {
         grid-template-columns: repeat(2, 1fr);
