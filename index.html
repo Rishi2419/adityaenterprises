@@ -347,6 +347,8 @@
             &copy; 2025 Aditya Enterprises. All Rights Reserved.
         </div>
     </footer>
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
 
 
     <script>
@@ -391,11 +393,53 @@
                 }
             });
 
-            // Store the original page 1 HTML
-            const originalProductsHTML = document.querySelector('.products-grid').innerHTML;
+            // Store the original page 1 products data
+            const page1Products = [
+                {
+                    title: 'Bathroom Cleaner',
+                    image: '/assets/product1.jpeg',
+                    description: 'All bathroom surfaces, sink, tub, tiles, floors and fittings.'
+                },
+                {
+                    title: 'Floor cleaner',
+                    image: '/assets/product2.jpeg',
+                    description: 'All type of floors and walls'
+                },
+                {
+                    title: 'Glass Cleaner',
+                    image: '/assets/product3.jpeg',
+                    description: 'Windows mirrors, glass display cases'
+                },
+                {
+                    title: 'Air Fresheners',
+                    image: '/assets/product4.jpeg',
+                    description: 'Office, Corridors, Washrooms.'
+                },
+                {
+                    title: 'Toilet Cleaner',
+                    image: '/assets/product5.jpeg',
+                    description: 'Toiler Bowls and Urinals.'
+                },
+                {
+                    title: 'Gentle Soap',
+                    image: '/assets/product6.jpeg',
+                    description: 'Soft on skin, moisturizes hands and ideal for daily use.'
+                },
+                {
+                    title: 'Liquid Soap',
+                    image: '/assets/product7.jpeg',
+                    description: 'Cuts through tough grease and stains on utensils.'
+                },
+                {
+                    title: 'Perfume Cleaner',
+                    image: '/assets/product8.jpeg',
+                    description: 'Eliminates germs with lasting fragrance.'
+                }
+            ];
 
             // Product data for different pages
             const productPages = {
+                '1': page1Products,
                 // Page 2 products
                 '2': [
                     {
@@ -501,43 +545,41 @@
                         description: 'Moth repellent and deodorizer for closets and bathrooms.'
                     }
                 ]
-
             };
 
             // Function to generate product HTML
             function generateProductHTML(product) {
                 return `
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="${product.image}" alt="${product.title}">
-                </div>
-                <div class="product-details">
-                    <h3 class="product-title">${product.title}</h3>
-                    <p class="product-description">${product.description || ''}</p>
-                </div>
+        <div class="product-card animate fade-in delay-1">
+            <div class="product-image">
+                <img src="${product.image}" alt="${product.title}" ${product.title === 'Bathroom Cleaner' ? 'style="padding: 7px;"' : ''}>
             </div>
+            <div class="product-details">
+                <h3 class="product-title">${product.title}</h3>
+                <p class="product-description">${product.description || ''}</p>
+            </div>
+        </div>
         `;
             }
 
             // Function to update products based on page
             function updateProducts(pageNumber) {
                 const productsGrid = document.querySelector('.products-grid');
+                const productsData = productPages[pageNumber];
 
-                // If page 1, restore the original HTML
-                if (pageNumber === '1') {
-                    productsGrid.innerHTML = originalProductsHTML;
-                    return;
-                }
-
-                // Otherwise update with new products
-                if (productPages[pageNumber]) {
+                if (productsData) {
                     let productsHTML = '';
 
-                    productPages[pageNumber].forEach(product => {
+                    productsData.forEach(product => {
                         productsHTML += generateProductHTML(product);
                     });
 
                     productsGrid.innerHTML = productsHTML;
+
+                    // Re-initialize animations for new elements
+                    setTimeout(function () {
+                        animateElementsInView();
+                    }, 10);
                 }
             }
 
@@ -572,12 +614,8 @@
             if (nextButton) {
                 nextButton.remove();
             }
-        });
-    </script>
-    <div class="custom-cursor"></div>
-    <div class="cursor-follower"></div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
+
+            // Custom cursor
             const cursor = document.querySelector('.custom-cursor');
             const follower = document.querySelector('.cursor-follower');
             const elements = document.querySelectorAll('.animate');
@@ -627,7 +665,7 @@
             });
 
             function animateElementsInView() {
-                elements.forEach(function (element) {
+                document.querySelectorAll('.animate').forEach(function (element) {
                     const position = element.getBoundingClientRect();
                     if (position.top < window.innerHeight * 0.9) {
                         element.classList.add('visible');

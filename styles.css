@@ -15,6 +15,13 @@
     font-family: 'Nunito', sans-serif;
 }
 
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
 
 
 body {
@@ -28,7 +35,8 @@ body {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #ff3366; /* Solid fill with primary color */
+    background-color: #ff3366;
+    /* Solid fill with primary color */
     pointer-events: none;
     transform: translate(-50%, -50%);
     transition: width 0.2s, height 0.2s, background-color 0.2s;
@@ -41,7 +49,8 @@ body {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    border: 2px solid #ffcc00; /* Increased thickness of yellow stroke */
+    border: 2px solid #ffcc00;
+    /* Increased thickness of yellow stroke */
     pointer-events: none;
     transform: translate(-50%, -50%);
     transition: width 0.3s, height 0.3s, border-color 0.3s, transform 0.1s;
@@ -49,27 +58,29 @@ body {
 }
 
 /* Hover effect for clickable elements */
-a:hover ~ .custom-cursor,
-button:hover ~ .custom-cursor,
-.nav-link:hover ~ .custom-cursor,
-.product-card:hover ~ .custom-cursor,
-.category-card:hover ~ .custom-cursor,
-.pagination-btn:hover ~ .custom-cursor {
+a:hover~.custom-cursor,
+button:hover~.custom-cursor,
+.nav-link:hover~.custom-cursor,
+.product-card:hover~.custom-cursor,
+.category-card:hover~.custom-cursor,
+.pagination-btn:hover~.custom-cursor {
     width: 30px;
     height: 30px;
-    background-color: #ff3366; /* Keep solid fill on hover */
+    background-color: #ff3366;
+    /* Keep solid fill on hover */
 }
 
-a:hover ~ .cursor-follower,
-button:hover ~ .cursor-follower,
-.nav-link:hover ~ .cursor-follower,
-.product-card:hover ~ .cursor-follower,
-.category-card:hover ~ .cursor-follower,
-.pagination-btn:hover ~ .cursor-follower {
+a:hover~.cursor-follower,
+button:hover~.cursor-follower,
+.nav-link:hover~.cursor-follower,
+.product-card:hover~.cursor-follower,
+.category-card:hover~.cursor-follower,
+.pagination-btn:hover~.cursor-follower {
     width: 60px;
     height: 60px;
     border-color: #ffcc00;
-    border-width: 2px; /* Maintain the thicker border on hover */
+    border-width: 2px;
+    /* Maintain the thicker border on hover */
     transform: translate(-50%, -50%) scale(1.2);
 }
 
@@ -82,7 +93,8 @@ button:hover ~ .cursor-follower,
 .cursor-follower.clicking {
     transform: translate(-50%, -50%) scale(0.8);
     border-color: #ffcc00;
-    border-width: 3px; /* Even thicker on click for visual feedback */
+    border-width: 3px;
+    /* Even thicker on click for visual feedback */
 }
 
 
@@ -91,6 +103,7 @@ button:hover ~ .cursor-follower,
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    box-sizing: border-box;
 }
 
 /* Navigation */
@@ -98,9 +111,11 @@ button:hover ~ .cursor-follower,
 .navbar {
     position: fixed;
     width: 80%;
-    margin: 10px auto; /* Reduced from 20px to 10px and added auto for centering */
+    margin: 10px auto;
+    /* Reduced from 20px to 10px and added auto for centering */
     left: 0;
-    right: 0;/* Added to help with centering */
+    right: 0;
+    /* Added to help with centering */
     border-radius: 50px;
     z-index: 1000;
     background: rgba(255, 255, 255, 0.8);
@@ -113,7 +128,8 @@ button:hover ~ .cursor-follower,
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0; /* Reduced from 15px to 10px to decrease height */
+    padding: 10px 0;
+    /* Reduced from 15px to 10px to decrease height */
 }
 
 .logo {
@@ -632,8 +648,8 @@ button:hover ~ .cursor-follower,
 }
 
 .contact-text {
-     text-align: center;
-  width: 100%;
+    text-align: center;
+    width: 100%;
     font-size: 1rem;
     color: #666;
 }
@@ -751,53 +767,57 @@ button:hover ~ .cursor-follower,
 .animate {
     opacity: 0;
     transition: all 0.8s ease-in-out;
-  }
-  
-  /* Specific animation classes */
-  .slide-down {
+}
+
+/* Specific animation classes */
+.slide-down {
     transform: translateY(-50px);
-  }
-  
-  .slide-up {
+}
+
+.slide-up {
     transform: translateY(50px);
-  }
-  
-  .slide-right {
+}
+
+.slide-right {
     transform: translateX(-50px);
-  }
-  
-  .slide-left {
+}
+
+.slide-left {
     transform: translateX(50px);
-  }
-  
-  .fade-in {
+}
+
+.fade-in {
     opacity: 0;
-  }
-  
-  /* The visible class will be added via JavaScript to trigger animations */
-  .visible {
+}
+
+/* The visible class will be added via JavaScript to trigger animations */
+.visible {
     opacity: 1;
     transform: translate(0, 0);
-  }
-  
-  /* Add a slight delay between elements for a cascading effect */
-  .delay-1 {
-    transition-delay: 0.1s;
-  }
-  .delay-2 {
-    transition-delay: 0.2s;
-  }
-  .delay-3 {
-    transition-delay: 0.3s;
-  }
-  .delay-4 {
-    transition-delay: 0.4s;
-  }
-  .delay-5 {
-    transition-delay: 0.5s;
-  }
+}
 
-  
+/* Add a slight delay between elements for a cascading effect */
+.delay-1 {
+    transition-delay: 0.1s;
+}
+
+.delay-2 {
+    transition-delay: 0.2s;
+}
+
+.delay-3 {
+    transition-delay: 0.3s;
+}
+
+.delay-4 {
+    transition-delay: 0.4s;
+}
+
+.delay-5 {
+    transition-delay: 0.5s;
+}
+
+
 /* Hamburger menu animation */
 .hamburger.active .bar:nth-child(2) {
     opacity: 0;
@@ -834,20 +854,23 @@ button:hover ~ .cursor-follower,
     .hero-image {
         width: 100%;
     }
-    
+
     .footer-mid {
         margin-left: 0;
     }
-    
+
     .footer-right {
         margin-left: 0;
     }
 }
 
 @media (max-width: 768px) {
-    .custom-cursor, .cursor-follower {
+
+    .custom-cursor,
+    .cursor-follower {
         display: none !important;
     }
+
     .hamburger {
         display: block;
     }
@@ -892,22 +915,22 @@ button:hover ~ .cursor-follower,
     .hero-title {
         font-size: 2rem;
     }
-    
+
     /* Modified to show 2 categories per row */
     .categories-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     /* Modified to show 2 products per row */
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
-    
+
     .product-image {
         height: 200px;
     }
-    
+
     .vm-container {
         flex-direction: column;
     }
@@ -915,36 +938,45 @@ button:hover ~ .cursor-follower,
     .vm-box {
         margin-bottom: 20px;
     }
-    
+
     .footer-container {
         flex-direction: column;
     }
-    
+
     .footer-col {
         width: 100%;
         margin-bottom: 30px;
     }
-    
+
     /* Contact item improvements for mobile */
     .contact-item {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .contact-icon {
         margin-right: 0;
         margin-bottom: 10px;
     }
-    
+
     .contact-details {
         padding: 0 10px;
     }
 }
 
 @media (max-width: 576px) {
-    .custom-cursor, .cursor-follower {
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .custom-cursor,
+    .cursor-follower {
         display: none !important;
     }
+
     .logo img {
         margin-left: 12px;
         height: 40px;
@@ -965,67 +997,74 @@ button:hover ~ .cursor-follower,
     .section-title {
         font-size: 1.8rem;
     }
+
     .contact-text {
-        word-break: break-word; /* This will force long text to break */
-        overflow-wrap: break-word; /* Additional support for text wrapping */
-        font-size: 0.9rem; /* Optional: Slightly reduce font size on mobile */
-        width: 100%; /* Ensure the text container takes full width */
+        word-break: break-word;
+        /* This will force long text to break */
+        overflow-wrap: break-word;
+        /* Additional support for text wrapping */
+        font-size: 0.9rem;
+        /* Optional: Slightly reduce font size on mobile */
+        width: 100%;
+        /* Ensure the text container takes full width */
     }
-    
+
     .contact-item {
         /* Your existing styles */
-        padding: 15px 10px; /* Reduce horizontal padding slightly */
+        padding: 15px 10px;
+        /* Reduce horizontal padding slightly */
     }
+
     /* Keep 2 categories per row even on very small screens */
     .categories-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
-    
+
     /* Keep 2 products per row even on very small screens */
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
-    
+
     .product-card {
         padding-bottom: 10px;
     }
-    
+
     .product-image {
         height: 160px;
     }
-    
+
     .product-title {
         font-size: 0.9rem;
     }
-    
+
     .product-description {
         font-size: 0.7rem;
     }
-    
+
     /* Improve contact section for smaller screens */
     .contact-container {
         padding: 20px 15px;
     }
-    
+
     .category-card {
         padding: 20px 10px;
     }
-    
+
     .category-icon {
         font-size: 2.5rem;
         margin-bottom: 10px;
     }
-    
+
     .category-title {
         font-size: 1rem;
     }
-    
+
     .pagination {
         margin-top: 30px;
     }
-    
+
     .pagination-btn {
         width: 35px;
         height: 35px;
