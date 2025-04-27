@@ -1,19 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
 
 :root {
     --primary: #ff3366;
     --secondary: #ffcc00;
     --light: #ffffff;
     --dark: #333333;
-    --gradient: linear-gradient(135deg, #ff3366, #ff6699);
+    --gradient: linear-gradient(135deg, #fe245a, #ff7faa);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
+
+
 
 body {
     background-color: #f9f9f9;
@@ -92,11 +94,14 @@ button:hover ~ .cursor-follower,
 }
 
 /* Navigation */
+/* Navigation */
 .navbar {
     position: fixed;
-    top: 0;
+    width: 80%;
+    margin: 10px auto; /* Reduced from 20px to 10px and added auto for centering */
     left: 0;
-    width: 100%;
+    right: 0;/* Added to help with centering */
+    border-radius: 50px;
     z-index: 1000;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
@@ -108,7 +113,7 @@ button:hover ~ .cursor-follower,
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 10px 0; /* Reduced from 15px to 10px to decrease height */
 }
 
 .logo {
@@ -119,11 +124,12 @@ button:hover ~ .cursor-follower,
 .logo img {
     height: 50px;
     margin-right: 10px;
+    margin-left: 10px;
 }
 
 .logo-text {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.6rem;
+    font-weight: 900;
     color: var(--primary);
 }
 
@@ -474,6 +480,7 @@ button:hover ~ .cursor-follower,
     align-content: center;
     object-fit: fill;
     transition: transform 0.3s;
+    border-radius: 15px;
 }
 
 .product-card:hover .product-image img {
@@ -491,7 +498,7 @@ button:hover ~ .cursor-follower,
 }
 
 .product-description {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: #666;
     margin-bottom: 8px;
 }
@@ -625,6 +632,8 @@ button:hover ~ .cursor-follower,
 }
 
 .contact-text {
+     text-align: center;
+  width: 100%;
     font-size: 1rem;
     color: #666;
 }
@@ -738,6 +747,57 @@ button:hover ~ .cursor-follower,
     font-size: 0.9rem;
 }
 
+
+.animate {
+    opacity: 0;
+    transition: all 0.8s ease-in-out;
+  }
+  
+  /* Specific animation classes */
+  .slide-down {
+    transform: translateY(-50px);
+  }
+  
+  .slide-up {
+    transform: translateY(50px);
+  }
+  
+  .slide-right {
+    transform: translateX(-50px);
+  }
+  
+  .slide-left {
+    transform: translateX(50px);
+  }
+  
+  .fade-in {
+    opacity: 0;
+  }
+  
+  /* The visible class will be added via JavaScript to trigger animations */
+  .visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  
+  /* Add a slight delay between elements for a cascading effect */
+  .delay-1 {
+    transition-delay: 0.1s;
+  }
+  .delay-2 {
+    transition-delay: 0.2s;
+  }
+  .delay-3 {
+    transition-delay: 0.3s;
+  }
+  .delay-4 {
+    transition-delay: 0.4s;
+  }
+  .delay-5 {
+    transition-delay: 0.5s;
+  }
+
+  
 /* Hamburger menu animation */
 .hamburger.active .bar:nth-child(2) {
     opacity: 0;
@@ -785,6 +845,9 @@ button:hover ~ .cursor-follower,
 }
 
 @media (max-width: 768px) {
+    .custom-cursor, .cursor-follower {
+        display: none !important;
+    }
     .hamburger {
         display: block;
     }
@@ -813,10 +876,12 @@ button:hover ~ .cursor-follower,
         padding: 20px 0;
         transition: 0.3s;
         z-index: 999;
+        visibility: hidden;
     }
 
     .nav-menu.active {
         left: 0;
+        visibility: visible;
     }
 
     .nav-item {
@@ -877,6 +942,9 @@ button:hover ~ .cursor-follower,
 }
 
 @media (max-width: 576px) {
+    .custom-cursor, .cursor-follower {
+        display: none !important;
+    }
     .logo img {
         margin-left: 12px;
         height: 40px;
