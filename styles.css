@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
 
+
 :root {
     --primary: #ff3366;
     --secondary: #ffcc00;
@@ -29,6 +30,33 @@ body {
     cursor: none;
 }
 
+.shimmer {
+    font-family: sans-serif;
+    font-weight: 300;
+    font-size: 3em;
+    margin: 0 auto;
+    padding: 0;
+    color: #222; /* Base text color */
+    position: relative;
+    background: linear-gradient(90deg, 
+        rgba(34, 34, 34, 1) 0%,
+        rgba(255, 51, 102, 1) 50%,
+        rgba(34, 34, 34, 1) 100%);
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 2.5s infinite linear;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
 /* Primary cursor element */
 .custom-cursor {
     position: fixed;
@@ -219,7 +247,7 @@ button:hover~.cursor-follower,
 }
 
 .hero-title {
-    font-size: 3rem;
+    font-size: 2.9rem;
     font-weight: 700;
     color: var(--dark);
     margin-bottom: 20px;
